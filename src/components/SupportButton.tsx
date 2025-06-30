@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { HelpCircle, X, MessageCircle, Send, Loader2 } from 'lucide-react'
 import { useAuth } from '../contexts/AuthContext'
