@@ -8,10 +8,12 @@ import {
   ArrowRight,
   Star,
   Zap,
-  Shield
+  Shield,
+  HelpCircle
 } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import LegalLinks from '../components/LegalLinks'
+import SupportResources from '../components/SupportResources'
 
 const HomePage: React.FC = () => {
   const features = [
@@ -229,6 +231,27 @@ const HomePage: React.FC = () => {
               </motion.div>
             ))}
           </div>
+        </div>
+      </motion.div>
+
+      {/* Support Section */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        className="py-24"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Community & Support
+            </h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              Join our community and get assistance whenever you need it
+            </p>
+          </div>
+          
+          <SupportResources />
         </div>
       </motion.div>
 

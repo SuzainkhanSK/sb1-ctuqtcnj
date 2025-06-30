@@ -34,6 +34,7 @@ import TermsConditionsPage from './pages/legal/TermsConditionsPage'
 import RefundPolicyPage from './pages/legal/RefundPolicyPage'
 import CookiePolicyPage from './pages/legal/CookiePolicyPage'
 import DisclaimerPage from './pages/legal/DisclaimerPage'
+import SupportPage from './pages/SupportPage'
 
 // Protected Route Component
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
@@ -135,6 +136,9 @@ function App() {
               <Route path="/legal/refund-policy" element={<RefundPolicyPage />} />
               <Route path="/legal/cookie-policy" element={<CookiePolicyPage />} />
               <Route path="/legal/disclaimer" element={<DisclaimerPage />} />
+              
+              {/* Support Page */}
+              <Route path="/support" element={<SupportPage />} />
               
               {/* Protected User Routes */}
               <Route 

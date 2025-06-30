@@ -12,7 +12,8 @@ import {
   Coins,
   Target,
   ChevronLeft,
-  ChevronRight
+  ChevronRight,
+  HelpCircle
 } from 'lucide-react'
 import { useAuth } from '../contexts/AuthContext'
 import { Link, useLocation } from 'react-router-dom'
@@ -62,6 +63,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     { name: 'Rewards', href: '/rewards', icon: Gift },
     { name: 'Transactions', href: '/transactions', icon: History },
     { name: 'Profile', href: '/profile', icon: User },
+    { name: 'Support', href: '/support', icon: HelpCircle },
   ]
 
   const handleSignOut = async () => {
