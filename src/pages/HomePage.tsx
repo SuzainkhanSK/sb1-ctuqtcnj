@@ -11,6 +11,7 @@ import {
   Shield
 } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import LegalLinks from '../components/LegalLinks'
 
 const HomePage: React.FC = () => {
   const features = [
@@ -275,11 +276,48 @@ const HomePage: React.FC = () => {
       </motion.div>
 
       {/* Footer */}
-      <footer className="bg-black/40 backdrop-blur-sm border-t border-white/10 py-8">
+      <footer className="bg-black/40 backdrop-blur-sm border-t border-white/10 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center text-gray-400">
-            <p>&copy; 2025 Premium Access Zone. All rights reserved.</p>
-            <p className="text-sm mt-2">Unlock premium subscriptions through simple tasks and games.</p>
+          <div className="grid md:grid-cols-4 gap-8 mb-8">
+            <div>
+              <h3 className="text-xl font-bold text-white mb-4">Premium Access Zone</h3>
+              <p className="text-gray-400 mb-4">
+                Unlock premium subscriptions through simple tasks and games.
+              </p>
+              <div className="flex items-center gap-2">
+                <Shield className="h-5 w-5 text-blue-400" />
+                <span className="text-blue-400 font-medium">Trusted by 50,000+ users</span>
+              </div>
+            </div>
+            
+            <div>
+              <h3 className="text-lg font-semibold text-white mb-4">Quick Links</h3>
+              <ul className="space-y-2 text-gray-400">
+                <li><Link to="/" className="hover:text-white transition-colors">Home</Link></li>
+                <li><Link to="/login" className="hover:text-white transition-colors">Sign In</Link></li>
+                <li><Link to="/register" className="hover:text-white transition-colors">Register</Link></li>
+              </ul>
+            </div>
+            
+            <div>
+              <h3 className="text-lg font-semibold text-white mb-4">Features</h3>
+              <ul className="space-y-2 text-gray-400">
+                <li><Link to="/games" className="hover:text-white transition-colors">Games</Link></li>
+                <li><Link to="/tasks" className="hover:text-white transition-colors">Tasks</Link></li>
+                <li><Link to="/rewards" className="hover:text-white transition-colors">Rewards</Link></li>
+              </ul>
+            </div>
+            
+            <div>
+              <h3 className="text-lg font-semibold text-white mb-4">Contact</h3>
+              <p className="text-gray-400 mb-2">support@premiumaccesszone.com</p>
+              <p className="text-gray-400">123 Digital Street, Internet City, 10001</p>
+            </div>
+          </div>
+          
+          <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-gray-400">&copy; 2025 Premium Access Zone. All rights reserved.</p>
+            <LegalLinks />
           </div>
         </div>
       </footer>

@@ -26,6 +26,14 @@ import PerformanceMonitor from './components/PerformanceMonitor'
 import { registerServiceWorker, cacheManager } from './utils/cacheManager'
 import { memoryManager } from './utils/performance'
 import { Link } from 'react-router-dom'
+import CookieConsentBanner from './components/CookieConsentBanner'
+
+// Legal Pages
+import PrivacyPolicyPage from './pages/legal/PrivacyPolicyPage'
+import TermsConditionsPage from './pages/legal/TermsConditionsPage'
+import RefundPolicyPage from './pages/legal/RefundPolicyPage'
+import CookiePolicyPage from './pages/legal/CookiePolicyPage'
+import DisclaimerPage from './pages/legal/DisclaimerPage'
 
 // Protected Route Component
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
@@ -120,6 +128,13 @@ function App() {
                   </PublicRoute>
                 } 
               />
+              
+              {/* Legal Pages */}
+              <Route path="/legal/privacy-policy" element={<PrivacyPolicyPage />} />
+              <Route path="/legal/terms-conditions" element={<TermsConditionsPage />} />
+              <Route path="/legal/refund-policy" element={<RefundPolicyPage />} />
+              <Route path="/legal/cookie-policy" element={<CookiePolicyPage />} />
+              <Route path="/legal/disclaimer" element={<DisclaimerPage />} />
               
               {/* Protected User Routes */}
               <Route 
@@ -298,6 +313,9 @@ function App() {
             
             {/* Performance Monitor */}
             <PerformanceMonitor />
+            
+            {/* Cookie Consent Banner */}
+            <CookieConsentBanner />
             
             <Toaster
               position="top-right"
