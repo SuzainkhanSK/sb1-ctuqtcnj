@@ -16,6 +16,8 @@ import {
 import { useAuth } from '../contexts/AuthContext'
 import { supabase, isSupabaseConfigured } from '../lib/supabase'
 import toast from 'react-hot-toast'
+import DashboardSupportCard from '../components/DashboardSupportCard'
+import SupportButton from '../components/SupportButton'
 
 const Dashboard: React.FC = () => {
   const { userProfile, user, checkAndAwardSignupBonus, refreshProfile } = useAuth()
@@ -417,34 +419,40 @@ const Dashboard: React.FC = () => {
         ))}
       </div>
 
-      {/* Quick Actions */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.3 }}
-        className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20"
-      >
-        <h2 className="text-2xl font-bold text-white mb-6">Quick Actions</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {quickActions.map((action, index) => (
-            <motion.a
-              key={action.title}
-              href={action.href}
-              whileHover={{ scale: 1.05, y: -5 }}
-              whileTap={{ scale: 0.95 }}
-              className="group block"
-            >
-              <div className="bg-white/10 rounded-xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300">
-                <div className={`w-12 h-12 bg-gradient-to-br ${action.color} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
-                  <action.icon className="h-6 w-6 text-white" />
+      {/* Quick Actions and Support */}
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+        {/* Quick Actions */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="lg:col-span-3 bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20"
+        >
+          <h2 className="text-2xl font-bold text-white mb-6">Quick Actions</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {quickActions.map((action, index) => (
+              <motion.a
+                key={action.title}
+                href={action.href}
+                whileHover={{ scale: 1.05, y: -5 }}
+                whileTap={{ scale: 0.95 }}
+                className="group block"
+              >
+                <div className="bg-white/10 rounded-xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300">
+                  <div className={`w-12 h-12 bg-gradient-to-br ${action.color} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
+                    <action.icon className="h-6 w-6 text-white" />
+                  </div>
+                  <h3 className="text-lg font-bold text-white mb-2">{action.title}</h3>
+                  <p className="text-gray-300 text-sm">{action.description}</p>
                 </div>
-                <h3 className="text-lg font-bold text-white mb-2">{action.title}</h3>
-                <p className="text-gray-300 text-sm">{action.description}</p>
-              </div>
-            </motion.a>
-          ))}
-        </div>
-      </motion.div>
+              </motion.a>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Support Card */}
+        <DashboardSupportCard />
+      </div>
 
       {/* Recent Activity */}
       <motion.div
@@ -536,6 +544,9 @@ const Dashboard: React.FC = () => {
           </div>
         )}
       </motion.div>
+
+      {/* Support Button */}
+      <SupportButton />
     </div>
   )
 }
